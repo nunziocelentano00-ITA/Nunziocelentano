@@ -26,8 +26,8 @@ const I18N = {
     "lang.aria": "Cambia lingua: passa all'inglese",
 
     "hero.kicker": "Social Media Manager · Video & Visual Design",
-    "hero.title": "Strategia e contenuti che <em>fanno parlare</em> di un brand.",
-    "hero.sub": "Social media manager con una laurea magistrale in Marketing e Comunicazione e un forte occhio per il video e il visual design. Seguo i progetti dall'idea alla pubblicazione per brand, eventi, realtà sportive e istituzioni.",
+    "hero.title": "E se ti dicessi che riesco a <em>fermare lo scroll</em>?",
+    "hero.sub": "Dall'idea alla pubblicazione: contenuti pensati per farsi notare sui social.",
     "hero.cta": "Guarda i lavori",
     "hero.chip2": "Grafiche social",
     "cta.ig": "Scrivimi su Instagram",
@@ -130,7 +130,7 @@ const I18N = {
     "lb.progress": "Avanzamento del video",
 
     "srv.navcta": "Contattami",
-    "srv.title": "E se ti dicessi che riesco a <em>fermare lo scroll</em>?",
+    "srv.title": "Ogni brand ha <em>qualcosa da dire</em>.",
     "srv.sub": "Tre servizi, un solo obiettivo: una comunicazione che funziona sui social, dal piano completo al singolo contenuto.",
     "srv.cta": "Dimmi di più",
     "s0.title": "Gestione social",
@@ -196,8 +196,8 @@ const I18N = {
     "lang.aria": "Change language: switch to Italian",
 
     "hero.kicker": "Social Media Manager · Video & Visual Design",
-    "hero.title": "Strategy and content that get a brand <em>talked about</em>.",
-    "hero.sub": "Social media manager with a master's degree in Marketing and Communication and a strong eye for video and visual design. I follow projects from the idea to publication for brands, events, sports teams and institutions.",
+    "hero.title": "What if I told you I can <em>stop the scroll</em>?",
+    "hero.sub": "From idea to publication: content designed to get noticed on social media.",
     "hero.cta": "See my work",
     "hero.chip2": "Social graphics",
     "cta.ig": "DM me on Instagram",
@@ -300,7 +300,7 @@ const I18N = {
     "lb.progress": "Video progress",
 
     "srv.navcta": "Contact me",
-    "srv.title": "What if I told you I can <em>stop the scroll</em>?",
+    "srv.title": "Every brand has <em>something to say</em>.",
     "srv.sub": "Three services, one goal: communication that works on social media, from a full plan to a single piece of content.",
     "srv.cta": "Tell me more",
     "s0.title": "Social media management",
