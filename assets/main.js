@@ -6,6 +6,10 @@
 // Tutti i pulsanti "Scrivimi su Instagram" apriranno la chat con te.
 const INSTAGRAM_USERNAME = "nunziocelentano";
 
+// Il link del tuo profilo LinkedIn (es. "https://www.linkedin.com/in/nome-cognome/").
+// Finché è vuoto, i pulsanti LinkedIn restano nascosti.
+const LINKEDIN_URL = "https://www.linkedin.com/in/nunzio-celentano-014106278/";
+
 /* =========================================================
    TESTI IT / EN
    ========================================================= */
@@ -16,8 +20,7 @@ const I18N = {
     "meta.title.services": "Servizi & contatti — Nunzio Celentano",
     "meta.desc.services": "Montaggio video per i social e grafiche: scopri i servizi e scrivimi su Instagram per un preventivo.",
 
-    "nav.video": "Video",
-    "nav.graphics": "Grafiche",
+    "nav.projects": "Progetti",
     "nav.about": "Chi sono",
     "nav.contact": "Servizi & contatti",
     "lang.aria": "Cambia lingua: passa all'inglese",
@@ -28,38 +31,75 @@ const I18N = {
     "hero.cta": "Guarda i lavori",
     "hero.chip2": "Grafiche social",
     "cta.ig": "Scrivimi su Instagram",
+    "cta.li": "Contattami su LinkedIn",
 
     "marquee": ["Reels", "TikTok", "Shorts", "Storie", "Grafiche social", "Caroselli", "Teaser eventi", "Newsletter"],
 
-    "video.eyebrow": "Lavori video",
-    "video.title": "Shorts, Reels & storie",
-    "video.sub": "Clicca su un video per guardarlo a schermo intero, con l'audio.",
-    "f1926.hint": "Formato orizzontale",
-    "f1926.len": "Estratto · 40 sec",
-    "f1926.desc": "Un racconto verticale sulla storia del Napoli: dalle immagini d'archivio alla festa per lo scudetto 2023. Montato per essere guardato con il telefono girato in orizzontale.",
-    "f1926.cta": "Guarda l'estratto",
-    "f1926.cap": "Fan film · estratto di 40 secondi",
-    "tag.event": "Evento",
-    "tag.story": "Storia IG",
-    "v.presepe.title": "Reel del presepe vivente",
-    "v.mfe.title": "Teaser evento · 21 settembre",
-    "v.goal.title": "Storia goal · Amarante",
-    "v.mamma.title": "Video per le ricette",
+    "proj.eyebrow": "Progetti",
+    "proj.title": "Lavori selezionati",
+    "proj.sub": "Per ogni progetto: il contesto, il mio ruolo e cosa ho realizzato. Clicca su video e grafiche per vederli a schermo intero.",
+    "f.role": "Ruolo",
+    "f.did": "Cosa ho fatto",
+    "f.format": "Formato",
+    "type.gfx": "Grafica",
+    "type.story": "Storia IG",
+    "type.land": "Orizzontale",
+    "ig.view": "Guarda su Instagram",
+    "strip.aria": "Galleria del progetto: scorri per vedere tutto",
+    "strip.prev": "Indietro",
+    "strip.next": "Avanti",
 
-    "gfx.eyebrow": "Grafiche",
-    "gfx.title": "Post, caroselli & newsletter",
-    "gfx.sub": "Grafiche pensate per il feed: riconoscibili, leggibili e coerenti con il brand.",
-    "g.car.meta": "Carosello · 4 slide",
-    "g.car.aria": "Carosello di grafiche, scorri per vedere le slide",
-    "g.car.cap": "Serie di post per l'evento, con titolo coordinato e foto d'atmosfera.",
-    "g.news.meta": "Grafica newsletter",
-    "g.news.cap": "Grafica per invitare a iscriversi alla newsletter, con i prodotti in movimento.",
-    "g.more.kicker": "Anche per te",
-    "g.more.title": "Ti servono grafiche per i tuoi social?",
-    "g.more.text": "Post singoli, caroselli, storie, copertine e newsletter.",
-    "g.more.cta": "Vedi i servizi",
-    "car.prev": "Slide precedente",
-    "car.next": "Slide successiva",
+    "mfe.meta": "Roma · Settembre 2026",
+    "mfe.text": "La seconda edizione di un evento di moda all'aperto nel quartiere di Monteverde, a Roma: sfilata, market con 30 designer e artisti indipendenti, musica dal vivo e after-party al Casale dei Cedrati, dentro Villa Doria Pamphili. Ho curato la comunicazione social prima e dopo l'evento, dal countdown all'annuncio dei talenti fino al reel di presentazione.",
+    "mfe.role": "Montaggio · Grafiche e titoli · Gestione social",
+    "mfe.d1": "Teaser e reel di presentazione",
+    "mfe.d2": "Countdown a due mesi e a un mese",
+    "mfe.d3": "Grafica di annuncio dei 30 talenti",
+    "mfe.d4": "Gestione del profilo Instagram dell'evento",
+    "mfe.profile": "Profilo Instagram dell'evento",
+    "mfe.m1": "Reel di presentazione",
+    "mfe.m2": "Teaser · 21 settembre",
+    "mfe.m3": "Countdown · 2 mesi",
+    "mfe.m4": "Countdown · 1 mese",
+    "mfe.m5": "Meet the talent",
+
+    "pre.meta": "Sarno · Dicembre 2025",
+    "pre.sub": "Il presepe nei portoni del borgo",
+    "pre.text": "Per circa vent'anni il presepe del borgo era rimasto in silenzio. Il 27 e 28 dicembre 2025 è tornato a vivere nei portoni del borgo di Sarno, e ho curato il suo ritorno con una chiave moderna: mani che intrecciano il vimini, impastano il pane e cuciono come una volta, raccontate con la luce e il ritmo di oggi.",
+    "pre.role": "Cura del progetto · Montaggio · Grafiche",
+    "pre.d1": "Rilancio del presepe dopo circa vent'anni",
+    "pre.d2": "Reel dell'evento",
+    "pre.d3": "Serie di 4 post con titolo coordinato",
+    "pre.m1": "Reel dell'evento",
+    "pre.m2": "Il vimini",
+    "pre.m3": "Le carte",
+    "pre.m4": "Il pane",
+    "pre.m5": "Il filo",
+
+    "int.meta": "Calcio · Stagione 2024/2025",
+    "int.sub": "Contenuti social per la squadra",
+    "int.text": "Durante la stagione 2024/2025 ho realizzato i contenuti per i social della squadra, a partire dalle storie dedicate ai gol: un format animato nei colori del club, pensato per celebrare ogni rete e il giocatore che l'ha segnata.",
+    "int.role": "Montaggio · Grafiche e titoli",
+    "int.d1": "Format animato per le storie dei gol",
+    "int.d2": "Contenuti per tutta la stagione",
+    "int.m1": "Storia goal · Amarante",
+
+    "mam.meta": "Concept di rebranding",
+    "mam.sub": "Una nuova voce per i social del brand",
+    "mam.text": "Una proposta di rebranding per i social di Mammapack: una linea grafica più fresca e riconoscibile e le prime prove di contenuto, dalle animazioni dei prodotti per le ricette alla grafica per la newsletter.",
+    "mam.role": "Concept · Motion · Grafiche",
+    "mam.d1": "Proposta di nuova linea grafica",
+    "mam.d2": "Video animato per le ricette",
+    "mam.d3": "Grafica per la newsletter",
+    "mam.m1": "Video per le ricette",
+    "mam.m2": "Newsletter",
+
+    "p26.meta": "Progetto personale · Fan film",
+    "p26.sub": "Un tributo alla squadra del cuore",
+    "p26.text": "Un tributo emozionale alla mia squadra del cuore: dalle immagini d'archivio alla festa per lo scudetto 2023. Un corto montato in verticale, da guardare con il telefono girato.",
+    "p26.role": "Idea · Montaggio",
+    "p26.format": "I primi 40 secondi",
+    "p26.m1": "Fan film · estratto",
 
     "about.eyebrow": "Chi sono",
     "about.statement": "Ciao, sono <span class=\"hl\">Nunzio</span>. Trasformo il tuo materiale in contenuti che la gente <em>guarda fino alla fine</em>.",
@@ -70,7 +110,7 @@ const I18N = {
     "skill.3": "Effetti e transizioni",
     "skill.4": "Grafiche per il feed",
     "skill.5": "Formati 9:16, 4:5, 1:1",
-    "about.clients": "Ho lavorato per",
+    "about.clients": "Progetti e collaborazioni",
 
     "cta.title": "Hai un progetto?<br><span class=\"outline\">Parliamone.</span>",
     "footer.rights": "Tutti i diritti riservati.",
@@ -132,8 +172,7 @@ const I18N = {
     "meta.title.services": "Services & contact — Nunzio Celentano",
     "meta.desc.services": "Social video editing and graphics: see the services and message me on Instagram for a quote.",
 
-    "nav.video": "Videos",
-    "nav.graphics": "Graphics",
+    "nav.projects": "Projects",
     "nav.about": "About",
     "nav.contact": "Services & contact",
     "lang.aria": "Change language: switch to Italian",
@@ -144,38 +183,75 @@ const I18N = {
     "hero.cta": "See my work",
     "hero.chip2": "Social graphics",
     "cta.ig": "DM me on Instagram",
+    "cta.li": "Contact me on LinkedIn",
 
     "marquee": ["Reels", "TikTok", "Shorts", "Stories", "Social graphics", "Carousels", "Event teasers", "Newsletters"],
 
-    "video.eyebrow": "Video work",
-    "video.title": "Shorts, Reels & stories",
-    "video.sub": "Click any video to watch it full screen, with sound.",
-    "f1926.hint": "Landscape format",
-    "f1926.len": "Excerpt · 40 sec",
-    "f1926.desc": "A vertical story about Napoli's history: from archive footage to the 2023 title celebrations. Edited to be watched with the phone turned sideways.",
-    "f1926.cta": "Watch the excerpt",
-    "f1926.cap": "Fan film · 40-second excerpt",
-    "tag.event": "Event",
-    "tag.story": "IG story",
-    "v.presepe.title": "Living nativity reel",
-    "v.mfe.title": "Event teaser · 21 September",
-    "v.goal.title": "Goal story · Amarante",
-    "v.mamma.title": "Recipe video",
+    "proj.eyebrow": "Projects",
+    "proj.title": "Selected work",
+    "proj.sub": "For each project: the context, my role and what I made. Click any video or graphic to see it full screen.",
+    "f.role": "Role",
+    "f.did": "What I did",
+    "f.format": "Format",
+    "type.gfx": "Graphic",
+    "type.story": "IG story",
+    "type.land": "Landscape",
+    "ig.view": "View on Instagram",
+    "strip.aria": "Project gallery: scroll to see everything",
+    "strip.prev": "Back",
+    "strip.next": "Next",
 
-    "gfx.eyebrow": "Graphics",
-    "gfx.title": "Posts, carousels & newsletters",
-    "gfx.sub": "Graphics made for the feed: recognisable, readable and on-brand.",
-    "g.car.meta": "Carousel · 4 slides",
-    "g.car.aria": "Graphics carousel, scroll to see the slides",
-    "g.car.cap": "A post series for the event, with a consistent title and atmospheric photos.",
-    "g.news.meta": "Newsletter graphic",
-    "g.news.cap": "A graphic inviting people to sign up for the newsletter, with products in motion.",
-    "g.more.kicker": "For you too",
-    "g.more.title": "Need graphics for your socials?",
-    "g.more.text": "Single posts, carousels, stories, covers and newsletters.",
-    "g.more.cta": "See services",
-    "car.prev": "Previous slide",
-    "car.next": "Next slide",
+    "mfe.meta": "Rome · September 2026",
+    "mfe.text": "The second edition of an open-air fashion event in Rome's Monteverde district: a runway show, a market with 30 independent designers and artists, live music and an after-party at Casale dei Cedrati, inside Villa Doria Pamphili. I handled the social media communication before and after the event, from the countdown and the talent announcement to the presentation reel.",
+    "mfe.role": "Editing · Graphics & titles · Social media management",
+    "mfe.d1": "Teaser and presentation reel",
+    "mfe.d2": "Two-month and one-month countdown",
+    "mfe.d3": "Announcement graphic for the 30 talents",
+    "mfe.d4": "Management of the event's Instagram profile",
+    "mfe.profile": "Event's Instagram profile",
+    "mfe.m1": "Presentation reel",
+    "mfe.m2": "Teaser · 21 September",
+    "mfe.m3": "Countdown · 2 months",
+    "mfe.m4": "Countdown · 1 month",
+    "mfe.m5": "Meet the talent",
+
+    "pre.meta": "Sarno · December 2025",
+    "pre.sub": "The nativity in the village doorways",
+    "pre.text": "For about twenty years, the village nativity had fallen silent. On 27 and 28 December 2025 it came back to life in the old doorways of the borgo in Sarno, and I curated its return with a modern touch: hands weaving wicker, kneading bread and sewing as they once did, told with today's light and rhythm.",
+    "pre.role": "Project curation · Editing · Graphics",
+    "pre.d1": "Revival of the nativity after about twenty years",
+    "pre.d2": "Event reel",
+    "pre.d3": "Series of 4 posts with a coordinated title",
+    "pre.m1": "Event reel",
+    "pre.m2": "The wicker",
+    "pre.m3": "The cards",
+    "pre.m4": "The bread",
+    "pre.m5": "The thread",
+
+    "int.meta": "Football · 2024/2025 season",
+    "int.sub": "Social content for the team",
+    "int.text": "During the 2024/2025 season I created the team's social media content, starting with goal stories: an animated format in the club's colours, designed to celebrate every goal and the player who scored it.",
+    "int.role": "Editing · Graphics & titles",
+    "int.d1": "Animated format for goal stories",
+    "int.d2": "Content for the whole season",
+    "int.m1": "Goal story · Amarante",
+
+    "mam.meta": "Rebranding concept",
+    "mam.sub": "A new voice for the brand's socials",
+    "mam.text": "A rebranding proposal for Mammapack's social channels: a fresher, more recognisable visual line and the first content tests, from product animations for recipes to a newsletter graphic.",
+    "mam.role": "Concept · Motion · Graphics",
+    "mam.d1": "Proposal for a new visual line",
+    "mam.d2": "Animated recipe video",
+    "mam.d3": "Newsletter graphic",
+    "mam.m1": "Recipe video",
+    "mam.m2": "Newsletter",
+
+    "p26.meta": "Personal project · Fan film",
+    "p26.sub": "A tribute to the team I love",
+    "p26.text": "An emotional tribute to the team I love: from archive footage to the 2023 title celebrations. A short film edited vertically, to be watched with the phone turned sideways.",
+    "p26.role": "Idea · Editing",
+    "p26.format": "The first 40 seconds",
+    "p26.m1": "Fan film · excerpt",
 
     "about.eyebrow": "About me",
     "about.statement": "Hi, I'm <span class=\"hl\">Nunzio</span>. I turn your footage into content people <em>watch to the very end</em>.",
@@ -186,7 +262,7 @@ const I18N = {
     "skill.3": "Effects & transitions",
     "skill.4": "Feed graphics",
     "skill.5": "9:16, 4:5, 1:1 formats",
-    "about.clients": "I've worked with",
+    "about.clients": "Projects & collaborations",
 
     "cta.title": "Got a project?<br><span class=\"outline\">Let's talk.</span>",
     "footer.rights": "All rights reserved.",
@@ -326,6 +402,17 @@ function setupInstagram() {
   });
 }
 
+/* ---------- LinkedIn ---------- */
+function setupLinkedIn() {
+  const url = LINKEDIN_URL.trim();
+  // Mostra i pulsanti solo con un link a un profilo vero (non al feed).
+  const ok = /^https:\/\/([a-z]+\.)?linkedin\.com\/(in|company)\/[^/]+/i.test(url);
+  $$("[data-linkedin]").forEach((a) => {
+    a.hidden = !ok;
+    if (ok) a.href = url;
+  });
+}
+
 /* ---------- Header ---------- */
 function setupHeader() {
   const header = $(".site-header");
@@ -380,38 +467,27 @@ function pauseAllPreviews() {
   $$("video.preview, video[data-hero]").forEach((v) => v.pause());
 }
 
-/* ---------- Carosello ---------- */
-function setupCarousels() {
-  $$(".carousel").forEach((car) => {
-    const track = $(".carousel-track", car);
-    const slides = $$(".slide", track);
-    const dots = $$(".car-dots span", car.parentElement);
-    const count = $(".car-count", car);
-    const prev = $(".car-prev", car);
-    const next = $(".car-next", car);
-    let index = 0;
+/* ---------- Gallerie dei progetti ---------- */
+function setupStrips() {
+  $$(".strip-wrap").forEach((wrap) => {
+    const strip = $(".strip", wrap);
+    const prev = $(".strip-prev", wrap);
+    const next = $(".strip-next", wrap);
+    if (!strip || !prev || !next) return;
 
     const update = () => {
-      dots.forEach((d, i) => d.classList.toggle("on", i === index));
-      if (count) count.textContent = `${index + 1}/${slides.length}`;
-      if (prev) prev.disabled = index === 0;
-      if (next) next.disabled = index === slides.length - 1;
+      const max = strip.scrollWidth - strip.clientWidth;
+      prev.hidden = strip.scrollLeft <= 4;
+      next.hidden = strip.scrollLeft >= max - 4;
     };
-    const go = (i) => {
-      const target = Math.max(0, Math.min(slides.length - 1, i));
-      track.scrollTo({ left: target * track.clientWidth, behavior: reduceMotion ? "auto" : "smooth" });
+    const go = (dir) => {
+      strip.scrollBy({ left: dir * strip.clientWidth * 0.8, behavior: reduceMotion ? "auto" : "smooth" });
     };
 
-    track.addEventListener("scroll", () => {
-      const i = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
-      if (i !== index) { index = i; update(); }
-    }, { passive: true });
-    track.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowRight") { e.preventDefault(); go(index + 1); }
-      if (e.key === "ArrowLeft") { e.preventDefault(); go(index - 1); }
-    });
-    if (prev) prev.addEventListener("click", () => go(index - 1));
-    if (next) next.addEventListener("click", () => go(index + 1));
+    strip.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    prev.addEventListener("click", () => go(-1));
+    next.addEventListener("click", () => go(1));
     update();
   });
 }
@@ -449,6 +525,7 @@ function buildPlayer(src, rotated) {
   const muteBtn = $(".lb-mute", wrap);
   const range = $(".lb-progress", wrap);
   const time = $(".lb-time", wrap);
+  const frame = $(".lb-frame", wrap);
   range.setAttribute("aria-label", t("lb.progress"));
 
   const syncPlay = () => {
@@ -472,6 +549,12 @@ function buildPlayer(src, rotated) {
     range.style.setProperty("--p", (p * 100).toFixed(2) + "%");
     time.textContent = `${formatTime(v.currentTime)} / ${formatTime(v.duration)}`;
   });
+  v.addEventListener("loadedmetadata", () => {
+    // Adatta la cornice al formato del video (9:16, 4:5...).
+    if (!rotated && v.videoWidth && v.videoHeight) {
+      frame.style.setProperty("--arn", (v.videoWidth / v.videoHeight).toFixed(4));
+    }
+  });
   v.addEventListener("ended", () => { v.currentTime = 0; syncPlay(); });
   range.addEventListener("input", () => {
     if (v.duration) v.currentTime = (range.value / 1000) * v.duration;
@@ -490,6 +573,11 @@ function renderCaption() {
   if (!item) return;
   $(".lb-title", lb.el).textContent = item.dataset.title || "";
   $(".lb-sub", lb.el).textContent = item.dataset.caption ? t(item.dataset.caption) : "";
+  const ig = $(".lb-ig", lb.el);
+  if (ig) {
+    ig.hidden = !item.dataset.igUrl;
+    if (item.dataset.igUrl) ig.href = item.dataset.igUrl;
+  }
 }
 
 function renderItem() {
@@ -569,7 +657,8 @@ document.addEventListener("DOMContentLoaded", () => {
   setupLightbox();
   setupLang();
   setupInstagram();
+  setupLinkedIn();
   setupHeader();
   setupPreviews();
-  setupCarousels();
+  setupStrips();
 });
