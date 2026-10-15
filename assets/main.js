@@ -129,9 +129,9 @@ const I18N = {
     "lb.progress": "Avanzamento del video",
 
     "srv.navcta": "Contattami",
-    "srv.title": "Dimmi cosa ti serve, <em>al resto penso io.</em>",
-    "srv.sub": "Tre servizi, un solo obiettivo: una comunicazione che funziona sui social. Prezzi su richiesta, con un preventivo su misura e senza impegno.",
-    "srv.cta": "Chiedi un preventivo",
+    "srv.title": "E se ti dicessi che riesco a <em>fermare lo scroll</em>?",
+    "srv.sub": "Tre servizi, un solo obiettivo: una comunicazione che funziona sui social, dal piano completo al singolo contenuto.",
+    "srv.cta": "Dimmi di più",
     "s0.title": "Gestione social",
     "s0.text": "Mi occupo della presenza social del tuo brand dall'inizio alla fine: definisco la strategia, pianifico i contenuti e li pubblico con costanza, mantenendo un'immagine coerente e riconoscibile.",
     "s0.l1": "Analisi del profilo e strategia di comunicazione",
@@ -160,13 +160,20 @@ const I18N = {
     "p1.t": "Scrivimi su Instagram",
     "p1.d": "Raccontami in poche righe cosa ti serve.",
     "p2.d": "Definiamo insieme obiettivi, materiale da usare e scadenze.",
-    "p3.t": "Preventivo",
-    "p3.d": "Ricevi un preventivo su misura, senza impegno.",
+    "p3.t": "Proposta",
+    "p3.d": "Ricevi una proposta su misura, senza impegno.",
     "p4.t": "Consegna",
     "p4.d": "Ricevi i file pronti da pubblicare, con le revisioni concordate.",
-    "price.badge": "€ su richiesta",
-    "price.title": "Prezzi su richiesta",
-    "price.text": "Ogni progetto è diverso: durata dei video, quantità di contenuti, tempi di consegna. Scrivimi e ti preparo un preventivo su misura.",
+    "talk.title": "Parliamo di ciò che vuoi",
+    "talk.text": "Ogni progetto è diverso. Raccontami la tua idea e troviamo insieme la soluzione giusta: un piano completo per i tuoi social o anche un solo contenuto.",
+    "quick.video": "Sono qui solo per un video",
+    "quick.gfx": "Sono qui solo per una grafica",
+    "quick.more": "Ho un progetto più grande",
+    "quick.hint": "Ti preparo il messaggio già scritto: si apre la chat di Instagram, tu incolli e invii.",
+    "quick.msg.video": "Ciao Nunzio! Ho visto il tuo sito: mi servirebbe solo un video. Ti racconto di cosa si tratta: ",
+    "quick.msg.gfx": "Ciao Nunzio! Ho visto il tuo sito: mi servirebbe solo una grafica. Ti racconto di cosa si tratta: ",
+    "quick.copied": "Messaggio copiato: incollalo nella chat di Instagram e invia.",
+    "type.carousel": "Carosello",
     "contact.eyebrow": "Contatti",
     "contact.title": "Il modo più veloce?<br>Un <span class=\"ig-text\">DM su Instagram</span>.",
     "contact.text": "Ricevo le richieste direttamente su Instagram. Per partire subito, scrivimi:",
@@ -291,9 +298,9 @@ const I18N = {
     "lb.progress": "Video progress",
 
     "srv.navcta": "Contact me",
-    "srv.title": "Tell me what you need, <em>I'll handle the rest.</em>",
-    "srv.sub": "Three services, one goal: communication that works on social media. Prices on request, with a tailored, no-obligation quote.",
-    "srv.cta": "Ask for a quote",
+    "srv.title": "What if I told you I can <em>stop the scroll</em>?",
+    "srv.sub": "Three services, one goal: communication that works on social media, from a full plan to a single piece of content.",
+    "srv.cta": "Tell me more",
     "s0.title": "Social media management",
     "s0.text": "I take care of your brand's social presence from start to finish: I define the strategy, plan the content and publish it consistently, keeping a coherent, recognisable image.",
     "s0.l1": "Profile analysis and communication strategy",
@@ -322,13 +329,20 @@ const I18N = {
     "p1.t": "DM me on Instagram",
     "p1.d": "Tell me in a few lines what you need.",
     "p2.d": "Together we define goals, the material to use and deadlines.",
-    "p3.t": "Quote",
-    "p3.d": "You get a tailored, no-obligation quote.",
+    "p3.t": "Proposal",
+    "p3.d": "You get a tailored, no-obligation proposal.",
     "p4.t": "Delivery",
     "p4.d": "You get files ready to post, with the agreed revisions.",
-    "price.badge": "€ on request",
-    "price.title": "Prices on request",
-    "price.text": "Every project is different: video length, amount of content, turnaround time. Message me and I'll put together a tailored quote.",
+    "talk.title": "Let's talk about what you want",
+    "talk.text": "Every project is different. Tell me your idea and together we'll find the right solution: a complete plan for your socials or even a single piece of content.",
+    "quick.video": "I'm only here for a video",
+    "quick.gfx": "I'm only here for a graphic",
+    "quick.more": "I have a bigger project",
+    "quick.hint": "I'll prepare the message for you: the Instagram chat opens, you paste and send.",
+    "quick.msg.video": "Hi Nunzio! I saw your website: I only need a video. Here's what it's about: ",
+    "quick.msg.gfx": "Hi Nunzio! I saw your website: I only need a graphic. Here's what it's about: ",
+    "quick.copied": "Message copied: paste it in the Instagram chat and send.",
+    "type.carousel": "Carousel",
     "contact.eyebrow": "Contact",
     "contact.title": "Fastest way?<br>A <span class=\"ig-text\">DM on Instagram</span>.",
     "contact.text": "I take requests directly on Instagram. To get started right away, tell me:",
@@ -430,6 +444,48 @@ function setupLinkedIn() {
   $$("[data-linkedin]").forEach((a) => {
     a.hidden = !ok;
     if (ok) a.href = url;
+  });
+}
+
+/* ---------- Richieste veloci ("Sono qui solo per...") ---------- */
+let toastTimer = null;
+function showToast(text) {
+  const toast = $(".toast");
+  if (!toast) return;
+  toast.textContent = text;
+  toast.hidden = false;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { toast.hidden = true; }, 6000);
+}
+
+function copyText(text) {
+  // Copia sincrona (funziona durante il clic), con l'API moderna come rinforzo.
+  let ok = false;
+  try {
+    const area = document.createElement("textarea");
+    area.value = text;
+    area.setAttribute("readonly", "");
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+    document.body.appendChild(area);
+    area.select();
+    ok = document.execCommand("copy");
+    area.remove();
+  } catch (e) { ok = false; }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).catch(() => {});
+    ok = true;
+  }
+  return ok;
+}
+
+function setupQuick() {
+  $$("[data-quick]").forEach((link) => {
+    link.addEventListener("click", () => {
+      const msg = t("quick.msg." + link.dataset.quick);
+      if (copyText(msg)) showToast(t("quick.copied"));
+      // Il link apre la chat di Instagram (comportamento normale del clic).
+    });
   });
 }
 
@@ -678,6 +734,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupLang();
   setupInstagram();
   setupLinkedIn();
+  setupQuick();
   setupHeader();
   setupPreviews();
   setupStrips();
