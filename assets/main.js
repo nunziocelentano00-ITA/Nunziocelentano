@@ -99,6 +99,7 @@ const I18N = {
     "p26.text": "Un tributo emozionale alla mia squadra del cuore: dalle immagini d'archivio alla festa per lo scudetto 2023. Un corto montato in verticale, da guardare con il telefono girato.",
     "p26.role": "Idea · Montaggio",
     "p26.format": "I primi 40 secondi",
+    "p26.cta": "Guarda con l'audio",
     "p26.m1": "Fan film · estratto",
 
     "about.eyebrow": "Chi sono",
@@ -268,6 +269,7 @@ const I18N = {
     "p26.text": "An emotional tribute to the team I love: from archive footage to the 2023 title celebrations. A short film edited vertically, to be watched with the phone turned sideways.",
     "p26.role": "Idea · Editing",
     "p26.format": "The first 40 seconds",
+    "p26.cta": "Watch with sound",
     "p26.m1": "Fan film · excerpt",
 
     "about.eyebrow": "About me",
@@ -505,7 +507,20 @@ function playSafe(video) {
 }
 
 function setupPreviews() {
-  const cards = $$("[data-preview]");
+  const all = $$("[data-preview]");
+  // I video in evidenza (data-inview) partono da soli quando sono visibili.
+  const featured = all.filter((c) => c.hasAttribute("data-inview"));
+  const cards = all.filter((c) => !c.hasAttribute("data-inview"));
+  if (featured.length && !reduceMotion && "IntersectionObserver" in window) {
+    const fio = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        const v = $("video.preview", e.target);
+        if (!v) return;
+        if (e.isIntersecting) playSafe(v); else v.pause();
+      });
+    }, { threshold: 0.4 });
+    featured.forEach((c) => fio.observe(c));
+  }
   if (canHover) {
     cards.forEach((card) => {
       const v = $("video.preview", card);
